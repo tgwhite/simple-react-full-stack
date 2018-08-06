@@ -4,6 +4,9 @@ import ReactImage from "./react.png";
 import Button from '@material-ui/core/Button';
 import AppBar from './AppBar'; 
 import MediaCard from './MediaCard'; 
+import Grid from '@material-ui/core/Grid';
+
+console.log('typeof InteractiveGrid', typeof(InteractiveGrid)); 
 
 class Matbutton extends Component {
   handleClick() {
@@ -31,17 +34,37 @@ class App extends Component {
   }
 
   render() {
-	return (
-	  <div>
-		<AppBar/>		
-		{this.state.username ? (
-		  <h1>Hello {this.state.username}</h1>
-		) : (
-		  <h1>Loading.. please wait!</h1>
-		)}        
-		<Matbutton/>
-		<MediaCard/>
-	  </div>      
+	return (	  		  
+		<Grid 
+		container 		
+		direction="row"
+  		justify="flex-end"
+  		alignItems="center"
+  		className='flexGrow'
+  		>
+			<Grid item xs={12}>
+				<AppBar/>
+			</Grid>
+			<Grid item xs={12}>
+				<Matbutton/>
+				{this.state.username ? (
+				  <h1>Hello {this.state.username}</h1>
+				) : (
+				  <h1>Loading.. please wait!</h1>
+				)}      
+			</Grid>
+			<Grid item xs={4}>
+				<MediaCard/>
+			</Grid>
+			<Grid item xs={4}>
+				<MediaCard/>
+			</Grid>
+			<Grid item xs={4}>
+				<MediaCard/>
+			</Grid>
+		</Grid>		
+		
+
 	);
   }
 }
